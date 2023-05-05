@@ -33,7 +33,7 @@ We will review your changes and merge them into the main repository if they meet
 
 ## _Credits_
 
-The DALL-E-2.0 model was created by OpenAI. This repository contains an implementation of the model by Sanket Ghosh.
+The DALL.E-2.0 model was created by [OpenAI](https://openai.com/product/dall-e-2). This repository contains an implementation of the model by [Sanket Ghosh](github.com/sanketghosh).
 
 ## _License_
 

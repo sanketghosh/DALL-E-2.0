@@ -1,7 +1,7 @@
-import React from "react";
+import RouterWrapper from "./routes/RouterWrapper";
 
 const App = () => {
-  return <div className="font-playfair">DALL.E-2.0: A DALL.E CLONE</div>;
+  return <RouterWrapper></RouterWrapper>;
 };
 
 export default App;

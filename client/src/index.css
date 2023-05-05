@@ -6,6 +6,23 @@
 
 @layer base {
   html {
-    @apply font-open_sans bg-gray-200;
+    @apply font-open_sans;
   }
+}
+
+@media screen and (min-width: 480px) {
+  .card:nth-child(7n + 1) {
+    grid-column: auto/span 2;
+    grid-row: auto/span 2;
+  }
+}
+
+.prompt::-webkit-scrollbar,
+::-webkit-scrollbar {
+  @apply w-1;
+}
+
+.prompt::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-lg;
 }
