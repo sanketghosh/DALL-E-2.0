@@ -6,7 +6,7 @@ const Header = () => {
     <header className="w-full flex items-center justify-between bg-zinc-100 sm:px-8 px-4 py-4 border-b border-b-zinc-300">
       <NavLink
         to="/"
-        className="flex items-center gap-1 font-playfair text-2xl font-bold text-gray-600"
+        className="flex items-center gap-1 font-playfair text-2xl font-bold"
       >
         <SiOpenai />
         <h1>DALL.E 2.0</h1>

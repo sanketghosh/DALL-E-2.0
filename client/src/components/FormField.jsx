@@ -13,10 +13,7 @@ const FormField = ({
   return (
     <div>
       <div className="flex items-center gap-4 my-4">
-        <label
-          htmlFor={name}
-          className="block text-sm font-medium text-gray-600"
-        >
+        <label htmlFor={name} className="block text-sm font-medium">
           {labelName}
         </label>
         {isSurpriseMe && (
@@ -37,7 +34,7 @@ const FormField = ({
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
-        className="bg-gray-100 border-gray-300 text-gray-600 text-sm font-medium placeholder:text-gray-500 placeholder:font-light rounded-md focus:ring-indigo-600 focus:border-indigo-600 outline-none block w-full p-3 border-2"
+        className="bg-gray-100 border-gray-300 text-sm font-medium placeholder:text-gray-500 placeholder:font-light rounded-md focus:ring-indigo-600 focus:border-indigo-600 outline-none block w-full p-3 border-2"
       />
     </div>
   );
