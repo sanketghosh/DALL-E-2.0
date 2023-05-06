@@ -13,17 +13,30 @@ cloudinary.config({
 });
 
 // get all posts
-export const getAllPostsHandler = async () => {};
+export const getAllPostsHandler = async (req, res) => {
+  try {
+    const posts = await Post.find({});
+
+    res.status(200).json({ success: true, data: posts });
+  } catch (error) {
+    res.status(200).json({ success: false, data: error });
+  }
+};
 
 // create a post
 
 export const createPostHandler = async (req, res) => {
-  const { name, prompt, photo } = req.body;
-  const photoURL = await cloudinary.uploader.upload(photo);
+  try {
+    const { name, prompt, photo } = req.body;
+    const photoURL = await cloudinary.uploader.upload(photo);
 
-  const newPost = await Post.create({
-    name,
-    prompt,
-    photo: photoURL.url,
-  });
+    const newPost = await Post.create({
+      name,
+      prompt,
+      photo: photoURL.url,
+    });
+    res.status(200).json({ success: true, data: newPost });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error });
+  }
 };
