@@ -1,13 +1,23 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
+  "description": "openai dall.e clone backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "openai",
+    "dalle",
+    "fullstack",
+    "MERN",
+    "react.js",
+    "backend",
+    "node.js",
+    "express.js"
+  ],
+  "author": "github.com/sanketghosh",
   "license": "ISC",
   "dependencies": {
     "cloudinary": "^1.36.4",

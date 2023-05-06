@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../public/openai.svg";
 import { SiOpenai } from "react-icons/si";
 
 const Header = () => {

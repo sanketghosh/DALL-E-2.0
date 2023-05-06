@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FormField } from "../components";
+import { CiImageOn } from "react-icons/ci";
+import { FormField, Loader } from "../components";
+import { getRandomPrompt } from "../utils";
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -13,11 +15,18 @@ const CreatePost = () => {
   const [generatingImage, setGeneratingImage] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const handleGenerateImage = () => {};
+
   const handleSubmit = () => {};
 
-  const handleChange = () => {};
+  const handleChange = () => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleSurpriseMe = () => {};
+  const handleSurpriseMe = () => {
+    const randomPrompt = getRandomPrompt(form.prompt);
+    setForm({ ...form, prompt: randomPrompt });
+  };
 
   return (
     <section className="max-w-7xl mx-auto">
@@ -31,7 +40,7 @@ const CreatePost = () => {
         </p>
       </div>
 
-      <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
+      <form className="mt-12 max-w-3xl" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-5">
           <FormField
             labelName="Your name"
@@ -52,7 +61,45 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative bg-gray-100 border-gray-400 text-gray-600 text-sm rounded-lg"></div>
+          <div className="relative bg-gray-100 border-gray-400 text-gray-600 text-sm rounded-lg focus:ring-indigo-600 border-2 focus:border-indigo-600 w-64 h-64 p-3 flex justify-center items-center">
+            {form.photo ? (
+              <img
+                src={form.photo}
+                alt={form.prompt}
+                className=" w-full h-full object-contain"
+              />
+            ) : (
+              <CiImageOn className="text-[13rem] opacity-60" />
+            )}
+
+            {generatingImage && (
+              <div className="absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)] rounded-lg">
+                <Loader />
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-6 flex gap-5">
+          <button
+            type="button"
+            onClick={handleGenerateImage}
+            className="bg-teal-600 text-gray-100 transition hover:bg-opacity-80 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+          >
+            {generatingImage ? "Generating..." : "Generate"}
+          </button>
+        </div>
+        <div className="mt-5">
+          <p className="mt-3 text-gray-600 text-sm select-none">
+            Once you have created the image, you want, you can hare with the
+            community
+          </p>
+          <button
+            type="submit"
+            className="mt-3 text-gray-100 bg-indigo-600 hover:bg-opacity-90 transition font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center rounded-sm"
+          >
+            {loading ? "Sharing" : "Share with the community"}
+          </button>
         </div>
       </form>
     </section>
