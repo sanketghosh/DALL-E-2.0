@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { SiOpenai } from "react-icons/si";
+import DropdownMenu from "./DropdownMenu";
 
 const Header = () => {
   return (
@@ -11,12 +12,15 @@ const Header = () => {
         <SiOpenai />
         <h1>DALL.E 2.0</h1>
       </NavLink>
-      <NavLink
-        to="/create-post"
-        className="px-5 py-2 bg-indigo-600 text-gray-100 text-xs lg:text-sm rounded-sm hover:opacity-80 transition font-medium"
-      >
-        <p>Let's Create</p>
-      </NavLink>
+      <div className="flex items-center gap-3 md:gap-5 lg:gap-7">
+        <NavLink
+          to="/create-post"
+          className="px-5 py-2 bg-indigo-600 text-gray-100 text-xs lg:text-sm rounded-sm hover:opacity-80 transition font-medium"
+        >
+          <p>Let's Create</p>
+        </NavLink>
+        <DropdownMenu />
+      </div>
     </header>
   );
 };
