@@ -19,7 +19,12 @@ export const getAllPostsHandler = async (req, res) => {
 
     res.status(200).json({ success: true, data: posts });
   } catch (error) {
-    res.status(200).json({ success: false, data: error });
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Fetching posts failed, please try again",
+      });
   }
 };
 
@@ -37,6 +42,8 @@ export const createPostHandler = async (req, res) => {
     });
     res.status(200).json({ success: true, data: newPost });
   } catch (error) {
-    res.status(500).json({ success: false, message: error });
+    res
+      .status(500)
+      .json({ success: false, message: "Unable to create a post" });
   }
 };

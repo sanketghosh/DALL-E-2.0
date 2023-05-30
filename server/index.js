@@ -13,7 +13,7 @@ import postRoute from "./routes/post.routes.js";
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.use("/api/v1/dalle", dalleRoute);
-app.use("/api/v1/dalle", postRoute);
+app.use("/api/v1/post", postRoute);
 
 /* app.get("/health-check", (req, res) => {
   res.json({ message: "Hello" });
